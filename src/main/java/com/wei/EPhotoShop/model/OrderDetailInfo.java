@@ -2,6 +2,8 @@ package com.wei.EPhotoShop.model;
 
 public class OrderDetailInfo {
 	
+	private String id;
+	
 	private String productCode;
 	private String productName;
 	
