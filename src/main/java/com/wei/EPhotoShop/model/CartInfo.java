@@ -88,7 +88,7 @@ public class CartInfo {
 		return this.customerInfo != null && this.customerInfo.isValid();
 	}
 	
-	public int getQuantity Total() {
+	public int getQuantityTotal() {
 		int quantity = 0;
 		for(CartLineInfo line : this.cartLines) {
 			quantity += line.getQuantity();
