@@ -22,6 +22,12 @@ public class ProductInfo {
 		this.price = product.getPrice();
 	}
 	
+	public ProductInfo(String code, String name, double price) {
+		this.code = code;
+		this.name = name;
+		this.price = price;
+	}
+	
 	public String getCode() {
 		return code;
 	}
