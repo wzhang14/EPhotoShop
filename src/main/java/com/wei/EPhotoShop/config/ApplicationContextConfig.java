@@ -111,8 +111,8 @@ public class ApplicationContextConfig {
 	}
 	
 	@Bean(name = "accountDAO")
-	public ApplicationDAO getApplicationDAO() {
-		return new ApplicationDAOImpl();
+	public AccountDAO getApplicationDAO() {
+		return new AccountDAOImpl();
 	}
 	
 	@Bean(name = "productDAO")

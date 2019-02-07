@@ -7,10 +7,10 @@ import com.wei.EPhotoShop.dao.AccountDAO;
 import com.wei.EPhotoShop.entity.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGranedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetaisService;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +40,7 @@ public class MyDBAuthenticationService implements UserDetailsService{
 		
 		grantList.add(authority);
 		
-		boolean enable = account.isActive();
+		boolean enabled = account.isActive();
 		boolean accountNonExpired = true;
 		boolean credentialsNonExpired = true;
 		boolean accountNonLocked = true;

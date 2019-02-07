@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotaiton.Validated;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -78,12 +78,12 @@ public class AdminController {
 		System.out.println(userDetails.getUsername());
 		System.out.println(userDetails.isEnabled());
 		
-		model.addAllAttributes("userDetails", userDetails);
+		model.addAttribute("userDetails", userDetails);
 		return "accountInfo";
 	}
 	
 	@RequestMapping(value= {"/orderList"}, method = RequestMethod.GET)
-	public String orderList(Model model.//
+	public String orderList(Model model,//
 			@RequestParam(value = "page", defaultValue = "1")String pageStr) {
 		int page = 1;
 		try {
@@ -96,7 +96,7 @@ public class AdminController {
 		PaginationResult<OrderInfo>paginationResult//
 		= orderDAO.listOrderInfo(page, MAX_RESULT, MAX_NAVIGATION_PAGE);
 		
-		model.addAllAttributes("paginationResult", paginationResult);
+		model.addAttribute("paginationResult", paginationResult);
 		return "orderList";
 	}
 	
@@ -119,7 +119,7 @@ public class AdminController {
 	//POST: Save product
 	@RequestMapping(value = {"/product"}, method = RequestMethod.POST)
 	//Avoid UnexpectedRollbackException 
-	@Transactional(Propagation = Propagation.NEVER)
+	@Transactional(propagation = Propagation.NEVER)
 	public String productSave(Model model,//
 			@ModelAttribute("productForm") @Validated ProductInfo productInfo,//
 			BindingResult result,//

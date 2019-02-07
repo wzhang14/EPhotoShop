@@ -28,7 +28,7 @@
             <tr>
                 <td>Code*</td>
                 <td style="color:red;">
-                    <c:if test="${not empty productFrom.code}"}
+                    <c:if test="${not empty productForm.code}">
                         <form:hidden path="code"/>
                         ${productForm.code}
                     </c:if>

@@ -17,7 +17,12 @@ public class ProductInfoValidator implements Validator {
 	
 	// This validator support ProductInfo class.
 	@Override
-	public void validate(Object targe, Errors errors) {
+	public boolean supports(Class<?> clazz) {
+		return clazz == ProductInfo.class;
+	}
+	
+	@Override
+	public void validate(Object target, Errors errors) {
 		ProductInfo productInfo = (ProductInfo) target;
 		
 		//Check the fields of ProductInfo class.

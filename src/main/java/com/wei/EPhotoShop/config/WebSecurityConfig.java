@@ -1,6 +1,6 @@
 package com.wei.EPhotoShop.config;
 
-import com.wei.EPhotoShop.authetication.MyDBAuthenticationService;
+import com.wei.EPhotoShop.authentication.MyDBAuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,7 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
-	MyDBAuthentiactionService myDBAuthenticationService;
+	MyDBAuthenticationService myDBAuthenticationService;
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth)throws Exception{
@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests().and().formLogin()//
 		    // Submit URL of login page.
 		    .loginProcessingUrl("/j_spring_security_check")//Submit URL
-		    .loginpage("/login")//
+		    .loginPage("/login")//
 		    .defaultSuccessUrl("/accountInfo")//
 		    .failureUrl("/login?error=true")//
 		    .usernameParameter("userName")//

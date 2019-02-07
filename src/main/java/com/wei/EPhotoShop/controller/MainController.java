@@ -17,10 +17,10 @@ import com.wei.EPhotoShop.validator.CustomerInfoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotaiton.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframwwork.validation.annoataion.Validated;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -264,7 +264,7 @@ public class MainController {
 		}
 		if(product!=null && product.getImage()!=null) {
 			response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-			response.getOutputStream().write(product, getImage());
+			response.getOutputStream().write(product.getImage());
 		}
 		response.getOutputStream().close();
 	}

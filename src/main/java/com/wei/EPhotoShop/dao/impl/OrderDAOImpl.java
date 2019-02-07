@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import com.wei.EPhotoShop.dao.OrderDAO;
+import com.wei.EPhotoShop.dao.ProductDAO;
 import com.wei.EPhotoShop.entity.Order;
 import com.wei.EPhotoShop.entity.OrderDetail;
 import com.wei.EPhotoShop.entity.Product;
@@ -46,7 +47,7 @@ public class OrderDAOImpl implements OrderDAO {
 	public void saveOrder(CartInfo cartInfo) {
 		Session session = sessionFactory.getCurrentSession();
 		
-		int orgerNum = this.getMaxOrderNum() + 1;
+		int orderNum = this.getMaxOrderNum() + 1;
 		Order order = new Order();
 		
 		order.setId(UUID.randomUUID().toString());
